@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>vue_firstApp</title>
+    </head>
+
+    <body>
+        <div id="app">{{message}}
+            <span class="app_span">{{message2}}</span>
+            <!-- input 내용으로 바꿀 수 있다 : 양방향 -->
+            <input type="text" v-model="message"/>
+            <input type="text" v-model="message2"/>
+        </div>
+
+        <div id="app2">{{message3}}
+            <!-- input 내용으로 바꿀 수 있다 : 양방향 -->
+            <input type="text" v-model="message3"/>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <!-- <script src="./vue.js"></script> -->
+        
+        
+        <script>
+            // javascript
+            // vue > id가 app 인 곳의 data 중 message에 특정 값을 넣을 때.
+            var firstApp = new Vue({
+                el: '#app',
+                data: {
+                    message: '메세지1',
+                    message2: '메세지2'
+                }
+            });
+            var firstApp2 = new Vue({
+                el: '#app2',
+                data: {
+                    message3: '메세지3'
+                }
+            });
+        </script>
+
+    </body>
+
+</html>
