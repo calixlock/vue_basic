@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V_if_show</title>
+</head>
+<body>
+    <div id="app">
+        <h1 v-if="visible">v-if : visible: true >> 보인다</h1>
+        <h1 v-show="visible">v-show : visible: true >> 보인다</h1>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                visible: false,
+
+            }
+        });
+    </script>
+
+</body>
+</html>
