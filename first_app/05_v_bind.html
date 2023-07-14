@@ -14,15 +14,26 @@
         <button @click="page = p" v-for="p in pages" :class="{'active' : page === p }">{{ p }}</button>
         <hr />
         <ul>
+            <!-- 항상 변수의 범위 확인 중요 -->
             <li v-for="p in pages" v-if="page === p">{{ p }} contents
                 <hr />
                 <span>
-                    <!-- {{ pictureCode[0][p] }} -->
-                    <img :src="`https://picsum.photos/id/${pictureCode[0][p]}/300/200`" alt="" srcset="">
+                    {{ pictureCode }}
+                    <img :src="`https://picsum.photos/id/${pictureCode[p]}/300/200`" alt="" srcset="">
                 </span>
             </li>
-            <!--  -->
         </ul>
+        <hr />
+        <!-- data divtionaryType 접근 -->
+        <span v-for="p in Object.keys(pictureCode)" v-if="p == page">
+            <ul>
+                <li>
+                    {{ pictureCode[p] }}
+                    <hr />
+                    <img :src="`https://picsum.photos/id/${pictureCode[p]}/300/200`" alt="" srcset="">
+                </li>
+            </ul>
+        </span>
     </div>
 
 
@@ -33,13 +44,13 @@
             el: '#app',
             data: {
                 page: 'page1',
-                pictureCode: [
-                    {
-                        page1: 13,
-                        page2: 14,
-                        page3: 15,
-                        page4: 16,
-                    }],
+                pictureCode:
+                {
+                    page1: 13,
+                    page2: 14,
+                    page3: 15,
+                    page4: 16,
+                },
                 pages: ['page1', 'page2', 'page3', 'page4'],
             }
         });
