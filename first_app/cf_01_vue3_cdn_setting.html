@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue3 방식</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@3"></script>
+
+    <div id="app">
+        <h1>
+            {{ message }}
+        </h1>
+        <button @click="button클릭">btn</button>
+    </div>
+    <div id="counter">
+        Counter: {{ counter }}
+        <div>
+            <button @click="increment">+</button>
+            <button @click="decrement">-</button>
+        </div>
+    </div>
+
+    <script>
+        var app = Vue.createApp({
+            data() {
+                return {
+                    message: 'Hello. vue3'
+                }
+            }
+        }).mount('#app')
+        var app2 = Vue.createApp({
+            data() {
+                return {
+                    counter: 0
+                }
+            },
+            methods: {
+                increment() {
+                    this.counter++
+                },
+                decrement() {
+                    this.counter--
+                }
+            }
+        }).mount('#counter')
+
+    </script>
+
+    <style>
+        #app {
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v_on</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2 v-if="visible">보입니다.</h2>
+        <hr />
+        <button v-on:click="visible = !visible">Button</button>
+        <hr />
+        <button v-on:dblclick="alert('dblTest')">dblButton</button>
+    </div>
+
+
+    <!-- js_vue 설정 -->
+
+    <!-- 최신버전 2-->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+
+    <!-- 특정버전 불러오기 -->
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
+
+    <!-- 특정 파일 설정 -->
+    <script src="./vue.js"></script>
+
+    <script>
+        //vue2 방식
+        var app = new Vue({
+            el: "#app",
+            data: {
+                visible: true
+            },
+            // alert 기능 구현
+            methods: {
+                alert(msg) {
+                    alert(msg);
+                }
+            }
+        });
+
+
+        //vue3 
+        /*
+        const { createApp, ref } = Vue
+        createApp({
+            setup() {
+                const message = ref('Hello vue!')
+                return {
+                    message
+                }
+                const alert = (msg) => alert(msg);
+            }
+        }).mount('#app')
+        */
+
+    </script>
+</body>
+
+</html>
