@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 모바일 환경 적용 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 웹 환경 노말라이징 -->
+    <link href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" rel="stylesheet" />
+    <!-- cssFile 적용 -->
+    <link href="./MemoApp.css" rel="stylesheet" />
+
+    <title>MemoApp</title>
+</head>
+
+<body>
+    <div class="app" id="app">
+
+        <div class="head">
+            메모앱
+        </div>
+
+        <div class="body">
+            <ul>
+                <li v-for="m in memos">{{ m.content }} {{m.regDate}}</li>
+            </ul>
+            <button class="add-btn" type="button">+</button>
+
+        </div>
+
+    </div>
+    <!-- Vue  -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- vue속성 스크립트 -->
+    <script src="./MemoApp.js"></script>
+</body>
+
+</html>
