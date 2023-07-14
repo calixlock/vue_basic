@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind</title>
+    <!-- css파일 적용 -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="app">
+        <button @click="page = p" v-for="p in pages" :class="{'active' : page === p }">{{ p }}</button>
+        <hr />
+        <ul>
+            <li v-for="p in pages" v-if="page === p">{{ p }} contents
+                <hr />
+                <span>
+                    <!-- {{ pictureCode[0][p] }} -->
+                    <img :src="`https://picsum.photos/id/${pictureCode[0][p]}/300/200`" alt="" srcset="">
+                </span>
+            </li>
+            <!--  -->
+        </ul>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                page: 'page1',
+                pictureCode: [
+                    {
+                        page1: 13,
+                        page2: 14,
+                        page3: 15,
+                        page4: 16,
+                    }],
+                pages: ['page1', 'page2', 'page3', 'page4'],
+            }
+        });
+    </script>
+</body>
+
+</html>
