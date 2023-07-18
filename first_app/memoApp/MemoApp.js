@@ -8,21 +8,21 @@ let app = new Vue({
       regDate: null,
     },
     memos: [
-      {
-        id: 1,
-        content: "memo #1",
-        regDate: new Date().toLocaleString(),
-      },
-      {
-        id: 2,
-        content: "memo #2",
-        regDate: new Date().toLocaleString(),
-      },
-      {
-        id: 3,
-        content: "memo #3",
-        regDate: new Date().toLocaleString(),
-      },
+      // {
+      //   id: 1,
+      //   content: "memo #1",
+      //   regDate: new Date().toLocaleString(),
+      // },
+      // {
+      //   id: 2,
+      //   content: "memo #2",
+      //   regDate: new Date().toLocaleString(),
+      // },
+      // {
+      //   id: 3,
+      //   content: "memo #3",
+      //   regDate: new Date().toLocaleString(),
+      // },
     ],
   },
   methods: {
@@ -40,6 +40,15 @@ let app = new Vue({
       });
       this.memo.content = null;
       this.mode = "list";
+
+      localStorage.setItem("memos", JSON.stringify(this.memos));
     },
+  },
+  // 초기 memo_List을 가져오도록 설정
+  created() {
+    let memos = localStorage.getItem("memos");
+    if (memos) {
+      this.memos = JSON.parse(memos);
+    }
   },
 });
