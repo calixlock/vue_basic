@@ -1,6 +1,7 @@
 let app = new Vue({
   el: "#app",
   data: {
+    mode: "list",
     memos: [
       {
         id: 1,
@@ -18,5 +19,13 @@ let app = new Vue({
         regDate: new Date().toLocaleString(),
       },
     ],
+  },
+  methods: {
+    write: function () {
+      this.mode = "write";
+    },
+    cancel: function () {
+      this.mode = "list";
+    },
   },
 });

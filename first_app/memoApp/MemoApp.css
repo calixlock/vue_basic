@@ -31,8 +31,9 @@
 }
 .app > .body .add-btn {
   display: inline-block;
-  padding: 20px;
-  font-size: 40px;
+  height: 70px;
+  width: 70px;
+  padding: 10px;
   position: fixed;
   right: 10px;
   bottom: 10px;
@@ -42,4 +43,30 @@
   color: white;
   line-height: 0;
   transition: all 0.3s ease;
+  text-align: center;
+  /* font-size: 50px; */
+}
+.app > .body > .write {
+  padding: 10px;
+}
+.app > .body > .write textarea {
+  width: 100%;
+  height: 300px;
+  padding: 0;
+  margin-bottom: 10px;
+}
+.app > .body > .write button {
+  width: 49%;
+  background-color: black;
+  color: white;
+  padding: 15px;
+  border: 0;
+}
+.app > .body > .write button:hover {
+  background-color: lightslategray;
+  color: black;
+}
+.app > .body > .write .save-btn {
+  background-color: black;
+  color: white;
 }

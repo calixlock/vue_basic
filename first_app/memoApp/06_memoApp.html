@@ -15,19 +15,24 @@
 
 <body>
     <div class="app" id="app">
-
         <div class="head">
             메모앱
         </div>
-
         <div class="body">
-            <ul>
-                <li v-for="m in memos">{{ m.content }} {{m.regDate}}</li>
-            </ul>
-            <button class="add-btn" type="button">+</button>
+            <div class="list" v-if="mode === 'list'">
+                <ul>
+                    <li v-for="m in memos">{{ m.content }} {{m.regDate}}</li>
+                </ul>
+            </div>
+            <div class="write" v-else>
+                <!-- <p>상세 혹은 작성</p> -->
+                <textarea></textarea>
+                <button class="save-btn" type="button">저장</button>
+                <button class="cancel-btn" type="button" v-on:click="cancel()">취소</button>
+            </div>
+            <button class="add-btn" type="button" v-on:click="write()" v-if="mode === 'list'">+</button>
 
         </div>
-
     </div>
     <!-- Vue  -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
